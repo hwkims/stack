@@ -470,8 +470,8 @@
     // Touch events
     canvas.addEventListener('touchstart', () => {
       if (!state.start) {
+
         state.start = true;
-        setup();
       } else if (state.over) {
         location.reload();
       } else {
