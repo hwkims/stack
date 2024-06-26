@@ -468,17 +468,17 @@
     });
 
     // Touch events
-    canvas.addEventListener('touchstart', () => {
-      if (!state.start) {
 
-        state.start = true;
-      } else if (state.over) {
-        location.reload();
-      } else {
-        const block = blocks[blocks.length - 1];
-        block.stop();
-      }
-    });
+    window.addEventListener('touchstart', (e) => {
+  if (e.touches.length!== 1) return;
+
+  state.start = true;
+
+  if (state.over) return location.reload();
+
+  const block = blocks[blocks.length - 1];
+  block.stop();
+});
     window.onmousedown = ({ button }) => {
   if (button !== 0) return;
 
